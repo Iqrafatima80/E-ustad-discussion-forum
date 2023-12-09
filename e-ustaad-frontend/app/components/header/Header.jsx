@@ -47,7 +47,7 @@ const Header = () => {
                   <Image
                     width={9}
                     height={9}
-                    src="/profile.jpeg"
+                    src="/bunny.jpeg"
                     alt=""
                     class="w-full h-full object-cover"
                   />
