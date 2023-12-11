@@ -11,8 +11,8 @@ const ForumPage = () => {
   const questionsData = content.forums.questions;
   const mustReadPoints = content.forums.mustReadPoints;
   return (
-    <div className="ml-6 ">
-      <div className="flex gap-3 mb-6">
+    <div className="lg:ml-6 ">
+      <div className="flex justify-center gap-3 mb-6 lg:justify-start">
         <div>
           <Filters>New</Filters>
         </div>
@@ -24,7 +24,7 @@ const ForumPage = () => {
         </div>
       </div>
       <div className="flex justify-between">
-        <ul className="w-[70%] flex gap-6 flex-col">
+        <ul className="lg:w-[70%] flex gap-6 flex-col">
           {questionsData.map((question) => (
             <li key={question.id}>
               <Link href="/forums/[id]" as={`/forums/${question.id}`}>
@@ -71,7 +71,7 @@ const ForumPage = () => {
             </li>
           ))}
         </ul>
-        <div className="w-[25%] border h-max mr-6">
+        <div className="w-[25%] border h-max mr-6 hidden lg:block">
           {mustReadPoints.map((point) => (
             <div key={point.id} className="px-4 py-8">
               <div className="flex items-center gap-2">

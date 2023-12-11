@@ -5,6 +5,7 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import Button from "../button/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -14,24 +15,26 @@ const Header = () => {
   };
   return (
     <nav className="h-16 border">
-      <div className="flex items-center justify-between h-full px-8">
+      <div className="flex items-center justify-between h-full px-2 md:px-4 lg:px-8">
         <div>
           <h2 className="text-lg font-bold">E-USTAAD</h2>
         </div>
         <div className="flex items-center gap-5">
-          <div className="w-[55%]">
-            <Button>
-              <div className="flex items-center gap-2">
-                <div>
-                  <FontAwesomeIcon icon={faCirclePlus} color="white" />
+          <div className="w-[55%] hidden lg:block">
+            <Link href="/questions">
+              <Button>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <FontAwesomeIcon icon={faCirclePlus} color="white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Ask A Question</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-white">Ask A Question</p>
-                </div>
-              </div>
-            </Button>
+              </Button>
+            </Link>
           </div>
-          <div className="text-2xl">
+          <div className="hidden text-2xl lg:block">
             <FontAwesomeIcon icon={faBell} color="gray" />
           </div>
           <div class="relative inline-block text-left">
