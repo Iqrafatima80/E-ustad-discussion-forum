@@ -30,10 +30,9 @@ const ForumPage = () => {
               <Link href="/forums/[id]" as={`/forums/${question.id}`}>
                 <div className="flex flex-col gap-3 px-6 py-3 duration-500 border rounded-md shadow-xl hover:scale-105">
                   <div className="flex gap-3">
-                    <div className="overflow-hidden border-2 border-gray-900 rounded-full w-14 h-14 dark:border-white">
+                    <div className="relative overflow-hidden border-2 border-gray-900 rounded-full w-14 h-14 dark:border-white">
                       <Image
-                        width={15}
-                        height={15}
+                        fill={true}
                         src={question.author.avatarSrc}
                         alt=""
                         className="object-cover w-full h-full"
