@@ -1,9 +1,3 @@
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>particular forum</div>
-  )
+export default function Page({ params }) {
+  return <div>My Post: {params.id}</div>
 }
-
-export default page
