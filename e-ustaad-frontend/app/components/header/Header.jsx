@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {faGauge } from '@fortawesome/free-solid-svg-icons'
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import Button from "../button/Button";
@@ -9,9 +11,14 @@ import Link from "next/link";
 
 const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [auth, setAuth] = useState(false)
 
   const handleDropdown = () => {
     setOpenDropdown(!openDropdown);
+  };
+
+  const handleAuth = () => {
+    setAuth(!auth);
   };
   return (
     <nav className="h-16 border">
@@ -19,9 +26,38 @@ const Header = () => {
         <div>
           <h2 className="text-lg font-bold">E-USTAAD</h2>
         </div>
-        <div className="flex items-center gap-5">
+        {!auth ? (<div className="flex items-center gap-5">
           <div className="w-[55%] hidden lg:block">
-            <Link href="/questions">
+            <Link href="#">
+              <Button>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <FontAwesomeIcon icon={faUserPlus} color="white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Register</p>
+                  </div>
+                </div>
+              </Button>
+            </Link>
+          </div>
+          <div className="w-[55%] hidden lg:block" onClick={handleAuth}>
+            <Link href="#">
+              <Button>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <FontAwesomeIcon icon={faRightToBracket} color="white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Login</p>
+                  </div>
+                </div>
+              </Button>
+            </Link>
+          </div>
+        </div>) : (<div className="flex items-center gap-5">
+          <div className="w-[55%] hidden lg:block">
+            <Link href="/forums/new-question">
               <Button>
                 <div className="flex items-center gap-2">
                   <div>
@@ -105,22 +141,20 @@ const Header = () => {
                   >
                     License
                   </a>
-                  <form method="POST" action="#" role="none">
-                    <button
-                      type="submit"
-                      class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="menu-item-3"
-                    >
-                      Sign out
-                    </button>
-                  </form>
+                  <button onClick={handleAuth}
+                    type="button"
+                    class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-3"
+                  >
+                    Sign out
+                  </button>
                 </div>
               </div>
             )}
           </div>
-        </div>
+        </div>)}
         {/*<FontAwesomeIcon icon={faGauge} color="white"/>*/}
       </div>
     </nav>

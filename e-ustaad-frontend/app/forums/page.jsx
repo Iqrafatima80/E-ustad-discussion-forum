@@ -11,7 +11,7 @@ const ForumPage = () => {
   const questionsData = content.forums.questions;
   const mustReadPoints = content.forums.mustReadPoints;
   return (
-    <div className="lg:ml-6 ">
+    <div className="">
       <div className="flex justify-center gap-3 mb-6 lg:justify-start">
         <div>
           <Filters>New</Filters>
@@ -71,7 +71,7 @@ const ForumPage = () => {
             </li>
           ))}
         </ul>
-        <div className="w-[25%] border h-max mr-6 hidden lg:block">
+        <div className="w-[25%] border h-max hidden lg:block">
           {mustReadPoints.map((point) => (
             <div key={point.id} className="px-4 py-8">
               <div className="flex items-center gap-2">
